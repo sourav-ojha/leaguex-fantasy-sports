@@ -16,11 +16,15 @@ const Page1 = () => {
   return (
     <>
       {/* stats board */}
-      <div className="statsBlock">
-        <StatsBox label="Players" value={stats.players} />
-        <StatsBox label="MS" value={stats.team1} />
-        <StatsBox label="PS" value={stats.team2} />
-        <StatsBox label="Cr Left" value={stats.credits} />
+      <div className="header">
+        <div className="flex-1"></div>
+        <h1 className="flex-1">Pick Player</h1>
+        <div className="statsBlock">
+          <StatsBox label="Players" value={stats.players} />
+          <StatsBox label="MS" value={stats.team1} />
+          <StatsBox label="PS" value={stats.team2} />
+          <StatsBox label="Cr Left" value={stats.credits} />
+        </div>
       </div>
 
       <div className="playerListBlock">

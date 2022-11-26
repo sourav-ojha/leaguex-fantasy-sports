@@ -19,7 +19,7 @@ const Page2 = () => {
         alignItems: "center",
       }}
     >
-      <h1>Page 2</h1>
+      <h1>Picked Players</h1>
       <table
         style={{
           width: "80%",

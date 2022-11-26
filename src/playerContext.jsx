@@ -8,7 +8,7 @@ import {
   MIN_PLAYERS_FOR,
 } from "./constants";
 const playerContext = React.createContext(null);
-import list from "./list.json";
+// import list from "./list.json";
 
 const PlayerContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -31,8 +31,8 @@ const PlayerContextProvider = ({ children }) => {
   const fetchPlayers = async () => {
     setLoading(true);
     let response = await fetch(FETCH_URL);
-    // let data = await response.json();
-    setListOfPlayers(response);
+    let data = await response.json();
+    setListOfPlayers(data);
     setLoading(false);
   };
 
@@ -127,7 +127,7 @@ const PlayerContextProvider = ({ children }) => {
   const value = {
     selectedPlayers,
     page,
-    list,
+    list: listOfPlayers,
     stats,
     handlePlayerSelect,
     isSelected,
@@ -136,7 +136,7 @@ const PlayerContextProvider = ({ children }) => {
 
   return (
     <playerContext.Provider value={value}>
-      {loading || !list ? (
+      {loading || !listOfPlayers ? (
         <div className="loading">
           <h2>Fetching player list . . .</h2>
         </div>

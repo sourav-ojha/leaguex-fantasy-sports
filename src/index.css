@@ -10,7 +10,14 @@ h4 {
   display: grid;
   place-items: center;
 }
-
+.flex-1 {
+  flex: 1;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
 .statsBlock {
   width: 400px;
   display: flex;
