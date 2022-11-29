@@ -6,6 +6,8 @@ import {
   MAX_PLAYERS_FOR,
   MAX_PLAYERS_PER_TEAM,
   MIN_PLAYERS_FOR,
+  TEAM1,
+  TEAM2,
 } from "./constants";
 const playerContext = React.createContext(null);
 // import list from "./list.json";
@@ -41,7 +43,7 @@ const PlayerContextProvider = ({ children }) => {
   };
 
   const validateTeam = (player) => {
-    if (player.team_short_name === "MS") {
+    if (player.team_short_name === TEAM1) {
       return stats.team1 < MAX_PLAYERS_PER_TEAM;
     } else {
       return stats.team2 < MAX_PLAYERS_PER_TEAM;
@@ -66,8 +68,8 @@ const PlayerContextProvider = ({ children }) => {
       setStats({
         players: players - 1,
         credits: credits + parseFloat(event_player_credit),
-        team1: team1 - (player.team_short_name === "MS" ? 1 : 0),
-        team2: team2 - (player.team_short_name === "PS" ? 1 : 0),
+        team1: team1 - (player.team_short_name === TEAM1 ? 1 : 0),
+        team2: team2 - (player.team_short_name === TEAM2 ? 1 : 0),
       });
       setPlayerCount({
         ...playerCount,
@@ -89,8 +91,8 @@ const PlayerContextProvider = ({ children }) => {
       setStats({
         players: players + 1,
         credits: credits - parseFloat(event_player_credit),
-        team1: team1 + (player.team_short_name === "MS" ? 1 : 0),
-        team2: team2 + (player.team_short_name === "PS" ? 1 : 0),
+        team1: team1 + (player.team_short_name === TEAM1 ? 1 : 0),
+        team2: team2 + (player.team_short_name === TEAM2 ? 1 : 0),
       });
       setPlayerCount({
         ...playerCount,

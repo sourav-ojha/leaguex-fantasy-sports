@@ -1,4 +1,5 @@
 import React from "react";
+import { TEAM1, TEAM2 } from "./constants";
 import { usePlayerContext } from "./playerContext";
 import PlayerList from "./PlayerList";
 
@@ -21,8 +22,8 @@ const Page1 = () => {
         <h1 className="flex-1">Pick Player</h1>
         <div className="statsBlock">
           <StatsBox label="Players" value={stats.players} />
-          <StatsBox label="MS" value={stats.team1} />
-          <StatsBox label="PS" value={stats.team2} />
+          <StatsBox label={TEAM1} value={stats.team1} />
+          <StatsBox label={TEAM2} value={stats.team2} />
           <StatsBox label="Cr Left" value={stats.credits} />
         </div>
       </div>
